@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viedwport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page">
+        <div id="itemsContainer">
+            <div id="itemsWrapper">
+                <div id="cookie-div" class="pictureDiv" onclick="interactivePicture(this)"><img id="cookie"
+                        src="images/cookie.png"></div>
+                <div id="eple-div" class="pictureDiv" onclick="interactivePicture(this)"><img id="eple"
+                        src="images/Eple.png">
+                </div>
+                <div id="headset-div" class="pictureDiv" onclick="interactivePicture(this)"><img id="headset"
+                        src="images/headset.png">
+                </div>
+                <div id="matboks-div" class="pictureDiv" onclick="interactivePicture(this)"><img id="matboks"
+                        src="images/matboks.png" style="width:100px; height: 100px"></div>
+                <div id="sko-div" class="pictureDiv" onclick="interactivePicture(this)"><img id="sko"
+                        src="images/Sko.png">
+                </div>
+                <div id="tennis-ball" class="pictureDiv" onclick="interactivePicture(this)"><img id="tennisball"
+                        src="images/tennisball.png"></div>
+            </div>
+
+        </div>
+
+        <div class="buttonsDiv">
+
+            <button id="hide-btn" class="buttonClass" onclick="showHideBackpack()">Show backpack</button>
+            <button class="buttonClass" onclick="resetItems()">Refresh items</button>
+        </div>
+
+        <div id="backpackContainer" class="backpackStyling"></div>
+    </div>
+
+
+    <script>
+        let backpack = "";
+
+        let itemDiv = document.getElementById('itemsContainer');
+        let backPackContainerDiv = document.getElementById('backpackContainer');
+
+        let showBackpackBool = false;
+        backPackContainerDiv.style.display = "none";
+        let hideBtn = document.getElementById('hide-btn');
+
+
+        function interactivePicture(tag) {
+            backpack += tag.innerHTML;
+            backPackContainerDiv.innerHTML = backpack;
+
+        }
+
+        function showHideBackpack() {
+            backPackContainerDiv.innerHTML = backpack;
+            if (!showBackpackBool) {
+                hideBtn.innerHTML = 'Hide backpack'; //-----------
+                backPackContainerDiv.style.display = 'flex';
+                showBackpackBool = true;
+            }
+            else {
+                hideBtn.innerHTML = 'Show backpack'; //-----------
+                backPackContainerDiv.style.display = 'none';
+
+                showBackpackBool = false;
+            }
+        }
+
+        function resetItems() {
+            backpack = "";
+            backPackContainerDiv.innerHTML = backpack;
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
